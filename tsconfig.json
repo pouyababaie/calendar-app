@@ -19,10 +19,15 @@
     "target": "ES2022",
     "module": "ES2022",
     "useDefineForClassFields": false,
-    "lib": [
-      "ES2022",
-      "dom"
-    ]
+    "lib": ["ES2022", "dom"],
+    "paths": {
+      "@shared/components/*": ["./src/app/shared/components/*"],
+      "@shared/enums/*": ["./src/app/shared/enums/*"],
+      "@shared/services/*": ["./src/app/shared/services/*"],
+      "@shared/utils/*": ["./src/app/shared/utils/*"],
+      "@shared/interfaces/*": ["./src/app/shared/interfaces/*"],
+      "@shared/models/*": ["./src/app/shared/models/*"]
+    }
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

@@ -1,0 +1,43 @@
+<button mat-raised-button (click)="openFormDialog()">Open Form</button>
+<div class="w-100 h-100">
+  <div class="calendar">
+    <div class="calendar-header">
+      <button mat-button color="primary" (click)="setTodaysDate()">
+        Today
+      </button>
+      <button mat-button color="accent" (click)="decrementDate()">
+        Previous
+      </button>
+      <span>{{ currentDisplay }}</span>
+      <button mat-button color="primary" (click)="incrementDate()">Next</button>
+    </div>
+    <mat-button-toggle-group (change)="onDateTypeChange($event)">
+      <mat-button-toggle *ngFor="let type of dateTypes" [value]="type"
+        >{{ getDateTypeName(type) }}
+      </mat-button-toggle>
+    </mat-button-toggle-group>
+
+    <div
+      cdkDropList
+      class="example-list w-100 h-100"
+      (cdkDropListDropped)="dropItem($event)"
+    >
+      @for (schedule of schedulerData; track schedule) {
+      <div class="card example-box" cdkDrag>
+        <div class="card-header">
+          <h3>{{ schedule.Title }}</h3>
+        </div>
+        <div class="card-body">
+          <sub>{{ schedule.Description }}</sub>
+        </div>
+        <div class="card-footer">
+          <div class="">
+            {{ schedule.Date | date : "dd/MM/YYYY/ss:ms" }}
+          </div>
+        </div>
+      </div>
+
+      }
+    </div>
+  </div>
+</div>
