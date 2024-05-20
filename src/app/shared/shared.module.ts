@@ -5,14 +5,15 @@ import { MatButtonModule } from '@angular/material/button';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DialogModule } from '@angular/cdk/dialog';
-import { NavbarComponent } from './components/navbar/navbar/navbar.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 import { RouterModule } from '@angular/router';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { CalendarComponent } from './components/calendar/calendar.component';
 import { MatNativeDateModule } from '@angular/material/core';
-
+import { ChunkPipe } from './pipes/chunk.pipe';
+import {MatTableModule} from '@angular/material/table'; 
 const modules = [
   DragDropModule,
   MatButtonToggleModule,
@@ -24,13 +25,14 @@ const modules = [
   MatFormFieldModule,
   RouterModule,
   MatInputModule,
-  MatNativeDateModule
+  MatNativeDateModule,
+  MatTableModule
 ]
 
 
-const components = [NavbarComponent]
+const components = [NavbarComponent,CalendarComponent]
 @NgModule({
-  declarations: [...components, CalendarComponent],
+  declarations: [...components, CalendarComponent, ChunkPipe],
   imports: [
     CommonModule,
 

@@ -14,6 +14,7 @@ export class CalendarDemoComponent {
 
   form!: FormGroup<ICalendarDemoFormGroup>;
 
+  selectedDate: Date = new Date();
   constructor(private localStorageService: LocalStorageService) {
     this.form = new FormGroup<ICalendarDemoFormGroup>({
       LastName: new FormControl(),
@@ -23,7 +24,7 @@ export class CalendarDemoComponent {
       Email: new FormControl()
     });
 
-    
+
   }
 
 
@@ -32,7 +33,7 @@ export class CalendarDemoComponent {
     this.localStorageService.saveData(LocalStorageKey, JSON.stringify(formValue))
   }
 
-  setDataFromLocalStorage(){
+  setDataFromLocalStorage() {
     const initialFormData = this.localStorageService.getData(LocalStorageKey)
     this.form.setValue({
       Email: initialFormData.Email,
@@ -42,5 +43,9 @@ export class CalendarDemoComponent {
       LastName: initialFormData.LastName,
 
     });
+  }
+
+  onSelectedDateChange(input: Date) {
+    this.selectedDate = new Date(input.setHours(0, 0, 0, 0));
   }
 }
