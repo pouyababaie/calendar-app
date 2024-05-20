@@ -1,26 +1,38 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CalendarComponent } from './components/calendar/calendar.component';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatButtonModule } from '@angular/material/button';
 import { DragDropModule } from '@angular/cdk/drag-drop';
-import { CdkDrag } from '@angular/cdk/drag-drop';
-import { FormDialogComponent } from './components/form-dialog/form-dialog.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DialogModule } from '@angular/cdk/dialog';
+import { NavbarComponent } from './components/navbar/navbar/navbar.component';
+import { RouterModule } from '@angular/router';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
+const modules = [
+  DragDropModule,
+  MatButtonToggleModule,
+  MatButtonModule,
+  FormsModule,
+  ReactiveFormsModule,
+  DialogModule,
+  MatDatepickerModule,
+  MatFormFieldModule,
+  RouterModule,
+  MatInputModule,
+]
+
+
+const components = [NavbarComponent]
 @NgModule({
-  declarations: [CalendarComponent, FormDialogComponent],
+  declarations: [...components],
   imports: [
     CommonModule,
-    CdkDrag,
-    DragDropModule,
-    MatButtonToggleModule,
-    MatButtonModule,
-    FormsModule,
-    ReactiveFormsModule,
-    DialogModule,
+
+    ...modules
   ],
-  exports: [CalendarComponent, FormDialogComponent],
+  exports: [...modules, ...components],
 })
-export class SharedModule {}
+export class SharedModule { }

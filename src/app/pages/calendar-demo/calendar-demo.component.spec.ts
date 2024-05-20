@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FormDialogComponent } from './form-dialog.component';
+import { CalendarDemoComponent } from './calendar-demo.component';
 
-describe('FormDialogComponent', () => {
-  let component: FormDialogComponent;
-  let fixture: ComponentFixture<FormDialogComponent>;
+describe('CalendarDemoComponent', () => {
+  let component: CalendarDemoComponent;
+  let fixture: ComponentFixture<CalendarDemoComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [FormDialogComponent]
+      declarations: [CalendarDemoComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(FormDialogComponent);
+    fixture = TestBed.createComponent(CalendarDemoComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
