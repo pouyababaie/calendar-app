@@ -4,7 +4,7 @@ export interface ICalendarDemoFormGroup {
 
     FirstName:FormControl<string>,
     LastName:FormControl<string>,
-    BirthDay:FormControl<Date>,
+    BirthDay:FormControl<string>,
     AttendDate:FormControl<string>,
-    Email:FormControl<EmailValidator>,
+    Email:FormControl<string>,
 }

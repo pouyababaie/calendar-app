@@ -10,6 +10,8 @@ import { RouterModule } from '@angular/router';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { CalendarComponent } from './components/calendar/calendar.component';
+import { MatNativeDateModule } from '@angular/material/core';
 
 const modules = [
   DragDropModule,
@@ -22,17 +24,19 @@ const modules = [
   MatFormFieldModule,
   RouterModule,
   MatInputModule,
+  MatNativeDateModule
 ]
 
 
 const components = [NavbarComponent]
 @NgModule({
-  declarations: [...components],
+  declarations: [...components, CalendarComponent],
   imports: [
     CommonModule,
 
     ...modules
   ],
+  providers: [MatDatepickerModule],
   exports: [...modules, ...components],
 })
 export class SharedModule { }
